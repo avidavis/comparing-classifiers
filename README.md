@@ -26,7 +26,7 @@ Source: [UCI Machine Learning Repository - Bank Marketing](https://archive.ics.u
 
 ## Key Findings
 
-**Decision Tree was the recommended model** (F1: 0.33, identified 301/935 subscribers). While all models achieved ~89% accuracy, this is barely above the 88.8% baseline of always predicting "no." F1-score revealed the real differences.
+**Decision Tree was the recommended model** (F1: 0.33, identified 217/935 subscribers). While all models achieved ~89% accuracy, this is barely above the 88.8% baseline of always predicting "no." Decision Tree and SVM tied on F1 and recall, but Decision Tree trains 275x faster and produces interpretable results.
 
 ![Model Performance Comparison](./images/model_comparison.png)
 
