@@ -28,6 +28,8 @@ Source: [UCI Machine Learning Repository - Bank Marketing](https://archive.ics.u
 
 **Decision Tree was the recommended model** (F1: 0.33, identified 217/935 subscribers). While all models achieved ~89% accuracy, this is barely above the 88.8% baseline of always predicting "no." Decision Tree and SVM tied on F1 and recall, but Decision Tree trains 275x faster and produces interpretable results.
 
+**Class weighting more than doubled the model's reach.** After retraining the Decision Tree with `class_weight='balanced'`, recall jumped from 23% to 60% and the model identified **560 of 935 actual subscribers — a 2.6x improvement**. F1 rose from 0.33 to 0.42. Precision dropped (32% vs 58%), meaning more wasted calls, but the trade-off favors the bank: the cost of an extra call is far lower than the cost of a missed subscription.
+
 ![Model Performance Comparison](./images/model_comparison.png)
 
 ![Confusion Matrices](./images/confusion_matrices.png)
@@ -45,7 +47,7 @@ Source: [UCI Machine Learning Repository - Bank Marketing](https://archive.ics.u
 
 ## Next Steps
 
-- Address class imbalance with SMOTE or class_weight='balanced'
+- **Class weighting applied** — retrained Decision Tree with `class_weight='balanced'` to address the ~23% recall problem and demonstrate the precision/recall trade-off the bank faces
 - Test full economic indicator set vs reduced (EVR only)
 - Improve data collection to reduce 20.9% unknown rate in the default column
-- Explore ensemble methods (Random Forest, Gradient Boosting) for potential F1 improvement
+- Explore SMOTE, threshold tuning, and ensemble methods (Random Forest, Gradient Boosting) for further F1 improvement
